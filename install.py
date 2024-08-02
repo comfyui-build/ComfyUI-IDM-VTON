@@ -1,13 +1,19 @@
 import sys
-import os.path
+import os
 import subprocess
 from huggingface_hub import snapshot_download
-from folder_paths import models_dir
 
 CUSTOM_NODES_PATH = os.path.dirname(os.path.abspath(__file__))
 WEIGHTS_PATH = os.path.join(models_dir, "models")
 HF_REPO_ID = "yisol/IDM-VTON"
 
+if 'COMFYUI_PATH' in os.environ:
+    models_dir = os.path.join(os.environ['COMFYUI_PATH'], "models")
+else:
+    parent_dir = os.path.dirname(CUSTOM_NODES_PATH)
+    models_dir = os.path.join(parent_dir, "models")
+
+WEIGHTS_PATH = os.path.join(models_dir, "models")
 
 def build_pip_install_cmds(args):
     if "python_embeded" in sys.executable or "python_embedded" in sys.executable:
