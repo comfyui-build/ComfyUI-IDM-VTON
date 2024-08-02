@@ -4,7 +4,6 @@ import subprocess
 from huggingface_hub import snapshot_download
 
 CUSTOM_NODES_PATH = os.path.dirname(os.path.abspath(__file__))
-WEIGHTS_PATH = os.path.join(models_dir, "models")
 HF_REPO_ID = "yisol/IDM-VTON"
 
 if 'COMFYUI_PATH' in os.environ:
@@ -24,7 +23,6 @@ def build_pip_install_cmds(args):
 def ensure_package():
     cmds = build_pip_install_cmds(['-r', 'requirements.txt'])
     subprocess.run(cmds, cwd=CUSTOM_NODES_PATH)
-
 
 if __name__ == "__main__":
     ensure_package()
