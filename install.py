@@ -27,7 +27,8 @@ def ensure_package():
 if __name__ == "__main__":
     ensure_package()
     if not os.path.exists(WEIGHTS_PATH) or not os.listdir(WEIGHTS_PATH):
-        snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
+        #snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
+        pass
     else:
         print(f"{WEIGHTS_PATH} already exists and is not empty. No need to download.")
         print(f"If a model loading error occurs, please delete the directory: {WEIGHTS_PATH}.")
