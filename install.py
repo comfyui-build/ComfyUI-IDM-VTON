@@ -24,4 +24,4 @@ def ensure_package():
 
 if __name__ == "__main__":
     ensure_package()
-    snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
+    #snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
